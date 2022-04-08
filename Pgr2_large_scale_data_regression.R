@@ -38,6 +38,7 @@ end - start
 # Computation time for Matrix inverse of X'X
 # This computation is by varying dimension size
 test_size_X = c(5,10,20,40,100,200)
+# matrix to store the computation time to invert
 time_to_invert = mat.or.vec(length(test_size_X),2)
 
 l = 0
@@ -54,3 +55,5 @@ for (k in test_size_X){
   time_to_invert[l,2] = system.time(inv(t(xk)%*%xk))[3][1]
   cat("processed X of size:",k,"\n")
 }
+# Check the time required to invert X of different dimensions
+print(time_to_invert)
